@@ -1,0 +1,82 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "28.0.0"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
+    supportLibraryVersion = '28.1.0'
+
+    // ---------------- Domain Layer Dependencies----------------
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    rxKotlinVersion = '2.2.0'
+
+    domainDependencies = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxJava         : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+    ]
+
+    // ---------------- Domain Layer Test Dependencies----------------
+    jUnitVersion = '4.12'
+    mockitoVersion = '2.22.0'
+
+    domainTestDependencies = [
+            junit  : "junit:junit:${jUnitVersion}",
+            mockito: "org.mockito:mockito-inline:${mockitoVersion}",
+    ]
+
+
+    //-------------------------------------------------------------
+    //-------------------------------------------------------------
+    //-------------------------------------------------------------
+
+
+    // ---------------- Data Layer Dependencies----------------
+    dataDependencies = [
+            rxKotlin       : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+    ]
+
+    // ---------------- Data Layer Test Dependencies----------------
+    kotlinJUnitVersion = '1.3.21'
+
+    dataTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinJUnitVersion}",
+            mockito    : "org.mockito:mockito-inline:${mockitoVersion}",
+    ]
+
+
+    //-------------------------------------------------------------
+    //-------------------------------------------------------------
+    //-------------------------------------------------------------
+
+
+    // ---------------- Remote Layer Dependencies----------------
+
+    gsonVersion = '2.8.5'
+    retrofitVersion = '2.4.0'
+    okHttpVersion = '3.8.1'
+    remoteDependencies = [
+            rxKotlin       : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+            gson           : "com.google.code.gson:gson:${gsonVersion}",
+            okHttp         : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger   : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit       : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    ]
+
+    // ---------------- Remote Layer Test Dependencies----------------
+
+    remoteTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinJUnitVersion}",
+            mockito    : "org.mockito:mockito-inline:${mockitoVersion}",
+    ]
+
+}
