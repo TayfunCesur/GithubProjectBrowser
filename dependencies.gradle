@@ -60,15 +60,15 @@ ext {
     retrofitVersion = '2.4.0'
     okHttpVersion = '3.8.1'
     remoteDependencies = [
-            rxKotlin       : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
-            gson           : "com.google.code.gson:gson:${gsonVersion}",
-            okHttp         : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
-            okHttpLogger   : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
-            retrofit       : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-            retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+            rxKotlin         : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            javaxAnnotation  : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject      : "javax.inject:javax.inject:${javaxInjectVersion}",
+            gson             : "com.google.code.gson:gson:${gsonVersion}",
+            okHttp           : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger     : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     ]
 
     // ---------------- Remote Layer Test Dependencies----------------
@@ -77,6 +77,44 @@ ext {
             junit      : "junit:junit:${jUnitVersion}",
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinJUnitVersion}",
             mockito    : "org.mockito:mockito-inline:${mockitoVersion}",
+    ]
+
+
+    // ---------------- Cache Layer Dependencies----------------
+
+    daggerVersion = '2.19'
+    kotlinVersion = '1.3.21'
+    roomVersion = '1.1.1'
+    cacheDependencies = [
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            rxKotlin       : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+            roomRuntime    : "android.arch.persistence.room:runtime:${roomVersion}",
+            roomCompiler   : "android.arch.persistence.room:compiler:${roomVersion}",
+            roomRxJava     : "android.arch.persistence.room:rxjava2:${roomVersion}"
+    ]
+
+    // ---------------- Cache Layer Test Dependencies----------------
+
+    archCompVersion = '1.1.1'
+    androidSupportRunnerVersion = '1.0.0'
+    androidSupportRulesVersion = '1.0.0'
+    androidSupportRulesVersion = '28.0.0'
+    robolectricVersion = '3.4.2'
+
+    cacheTestDependencies = [
+            junit             : "junit:junit:${jUnitVersion}",
+            kotlinJUnit       : "org.jetbrains.kotlin:kotlin-test-junit:${kotlinJUnitVersion}",
+            mockito           : "org.mockito:mockito-inline:${mockitoVersion}",
+            roomTesting       : "android.arch.persistence.room:testing:${roomVersion}",
+            archTesting       : "android.arch.core:core-testing:${archCompVersion}",
+            supportRunner     : "com.android.support.test:runner:${androidSupportRunnerVersion}",
+            supportRules      : "com.android.support.test:rules:${androidSupportRulesVersion}",
+            supportAnnotations: "com.android.support:support-annotations:${androidSupportRulesVersion}",
+            robolectric:        "org.robolectric:robolectric:${robolectricVersion}"
     ]
 
 }
