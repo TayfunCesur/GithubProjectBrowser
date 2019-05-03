@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+
+    implementation project(':domain')
+
+    implementation presentationDependencies.kotlin
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.rxKotlin
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
+    kapt presentationDependencies.archCompiler
+
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.mockito
+    testImplementation presentationTestDependencies.robolectric
+    testImplementation presentationTestDependencies.archTesting
+}

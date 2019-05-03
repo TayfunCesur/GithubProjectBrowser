@@ -26,7 +26,7 @@ abstract class CompletableUseCase<in Params> constructor(
         disposables.add(disposable)
     }
 
-    fun dispose() {
+    fun clear() {
         if (!disposables.isDisposed) disposables.dispose()
     }
 
