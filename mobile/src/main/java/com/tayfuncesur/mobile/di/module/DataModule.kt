@@ -6,6 +6,7 @@ import com.tayfuncesur.domain.repository.ProjectsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 abstract class DataModule {
@@ -13,6 +14,7 @@ abstract class DataModule {
     @Module
     companion object {
         @Provides
+        @Singleton
         @JvmStatic
         fun providesProjectMapper(): ProjectMapper {
             return ProjectMapper()

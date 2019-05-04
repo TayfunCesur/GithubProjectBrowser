@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 
 android {
@@ -26,7 +27,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -39,31 +42,43 @@ dependencies {
     implementation project(':remote')
     implementation project(':presentation')
 
+    //Structure
     implementation mobileDependencies.javaxAnnotation
-
     implementation mobileDependencies.kotlin
     implementation mobileDependencies.javaxInject
-    implementation mobileDependencies.rxKotlin
-    implementation mobileDependencies.androidAnnotations
-    implementation mobileDependencies.supportRecyclerView
-    implementation mobileDependencies.supportDesign
-    implementation mobileDependencies.rxAndroid
-    implementation mobileDependencies.glide
-    implementation mobileDependencies.dagger
-    implementation mobileDependencies.daggerSupport
-    implementation mobileDependencies.roomRxJava
     implementation presentationDependencies.archRuntime
     implementation presentationDependencies.archExtensions
     kapt presentationDependencies.archCompiler
 
-    testImplementation mobileTestDependencies.kotlinJUnit
+    //Design
+    implementation mobileDependencies.supportRecyclerView
+    implementation mobileDependencies.supportDesign
+    implementation mobileDependencies.constraintLayout
+    implementation mobileDependencies.lottie
+    implementation (mobileDependencies.pushDownAnim) {
+        exclude group: 'com.android.support'
+    }
+    implementation mobileDependencies.glide
 
+    //Dagger
+    implementation mobileDependencies.dagger
+    implementation mobileDependencies.daggerSupport
+    implementation mobileDependencies.androidAnnotations
     kapt mobileDependencies.daggerCompiler
     kapt mobileDependencies.daggerProcessor
     compileOnly mobileDependencies.glassfishAnnotation
 
+    //Rx
+    implementation mobileDependencies.rxKotlin
+    implementation mobileDependencies.rxAndroid
 
-    // Instrumentation test dependencies
+
+    //Room
+    implementation mobileDependencies.roomRxJava
+
+
+    //Testing
+    testImplementation mobileTestDependencies.kotlinJUnit
     androidTestImplementation mobileTestDependencies.junit
     androidTestImplementation mobileTestDependencies.mockito
     androidTestImplementation(mobileTestDependencies.espressoCore) {
@@ -87,8 +102,6 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'design'
     }
-
     kaptTest mobileDependencies.daggerCompiler
     kaptAndroidTest mobileDependencies.daggerCompiler
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

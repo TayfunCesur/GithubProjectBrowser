@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:id="@+id/singleRowItem"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:paddingStart="@dimen/margin_normal"
+            android:paddingEnd="@dimen/margin_normal"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/manropemedium"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="@color/white"
+                    android:id="@+id/repoName"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+
+
+            <ImageView android:layout_width="wrap_content"
+                       android:src="@drawable/ic_bookmarked"
+                       android:id="@+id/favImage"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+            <ImageView android:layout_width="24sp"
+                       android:src="@drawable/ic_star"
+                       android:id="@+id/starImage"
+                       android:paddingTop="4sp"
+                       android:layout_centerVertical="true"
+                       android:layout_height="24sp"/>
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_toRightOf="@+id/starImage"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/margin_tiny"
+                    android:id="@+id/starCount"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/manroperegular"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/starImage"
+                    android:layout_marginLeft="@dimen/margin_tiny"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <View android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:background="@color/white"/>
+</LinearLayout>

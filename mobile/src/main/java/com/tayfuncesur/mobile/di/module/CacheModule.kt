@@ -8,6 +8,7 @@ import com.tayfuncesur.data.repository.ProjectsCache
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 abstract class CacheModule {
@@ -15,12 +16,14 @@ abstract class CacheModule {
     @Module
     companion object {
         @Provides
+        @Singleton
         @JvmStatic
         fun providesDatabase(application: Application): ProjectsDatabase {
             return ProjectsDatabase.getInstance(application)
         }
 
         @Provides
+        @Singleton
         @JvmStatic
         fun providesCachedProjectMapper(): CachedProjectMapper {
             return CachedProjectMapper()

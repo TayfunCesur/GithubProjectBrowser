@@ -50,6 +50,7 @@ class ProjectsViewModel @Inject constructor(
             remoteProjectsLiveData.postValue(Resource.Success(t.map {
                 mapper.mapToView(it)
             }))
+            loadBookmarkedProjects()
         }
 
         override fun onError(e: Throwable) {

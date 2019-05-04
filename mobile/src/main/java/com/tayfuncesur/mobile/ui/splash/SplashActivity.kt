@@ -9,6 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.tayfuncesur.mobile.R
 import com.tayfuncesur.mobile.base.BaseDaggerActivity
+import com.tayfuncesur.mobile.base.launchActivity
 import com.tayfuncesur.mobile.di.ViewModelFactory
 import com.tayfuncesur.mobile.ui.main.MainActivity
 import com.tayfuncesur.presentation.SplashScreenViewModel
@@ -30,7 +31,7 @@ class SplashActivity : BaseDaggerActivity() {
         splashScreenViewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashScreenViewModel::class.java)
 
         splashScreenViewModel.isFinished.observe(this, Observer {
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            launchActivity<MainActivity> { }
             finish()
         })
     }

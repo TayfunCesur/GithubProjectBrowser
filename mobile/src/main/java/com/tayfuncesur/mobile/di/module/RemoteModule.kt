@@ -9,6 +9,7 @@ import com.tayfuncesur.remote.service.GithubServiceFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 abstract class RemoteModule {
@@ -16,12 +17,14 @@ abstract class RemoteModule {
     @Module
     companion object {
         @Provides
+        @Singleton
         @JvmStatic
         fun providesGithubService(): GithubService {
             return GithubServiceFactory.create(BuildConfig.DEBUG)
         }
 
         @Provides
+        @Singleton
         @JvmStatic
         fun providesProjectResponseMapper(): ProjectResponseMapper {
             return ProjectResponseMapper()
