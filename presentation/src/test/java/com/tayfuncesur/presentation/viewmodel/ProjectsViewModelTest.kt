@@ -72,8 +72,6 @@ class ProjectsViewModelTest {
         verify(getProjects, times(1)).execute(any(), eq(null))
     }
 
-
-
     @Test
     fun shouldLoadBookmarkedProjectsReturnesData() {
         projectsViewModel.loadBookmarkedProjects()
@@ -81,8 +79,5 @@ class ProjectsViewModelTest {
         verify(getBookmarkedProjects, times(1)).execute(captorString.capture(), eq(null))
         captorString.firstValue.onNext(listOf(UUID.randomUUID().toString()))
         assert(projectsViewModel.getBookmarkedProjectsLiveData().value is Resource.Success<*>)
-
     }
-
-
 }

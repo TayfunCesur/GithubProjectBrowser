@@ -55,6 +55,7 @@ class BookmarkViewModel @Inject constructor(
 
     override fun onCleared() {
         bookmarkProject.clear()
+        unbookmarkProject.clear()
         super.onCleared()
     }
 

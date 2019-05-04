@@ -12,15 +12,15 @@
             android:roundIcon="@drawable/appiconblack"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name=".ui.splash.SplashActivity" android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.MainActivity"/>
-        <activity android:name=".ui.detail.MainDetailActivity"/>
+        <activity android:name=".ui.main.MainActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".ui.detail.MainDetailActivity" android:configChanges="orientation|screenSize"/>
     </application>
 
 </manifest>

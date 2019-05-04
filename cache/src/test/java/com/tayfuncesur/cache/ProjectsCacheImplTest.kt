@@ -4,6 +4,7 @@ import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.persistence.room.Room
 import com.tayfuncesur.cache.db.ProjectsDatabase
 import com.tayfuncesur.cache.mapper.CachedProjectMapper
+import org.junit.BeforeClass
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -56,7 +57,7 @@ class ProjectsCacheImplTest {
 
 
         val result = projectsCacheImpl.getBookmarkedProjects().test()
-        assertEquals(result.values()[0].size,0)
+        assertEquals(result.values()[0].size, 0)
     }
 
 }

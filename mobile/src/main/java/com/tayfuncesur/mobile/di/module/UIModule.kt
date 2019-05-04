@@ -2,7 +2,7 @@ package com.tayfuncesur.mobile.di.module
 
 import com.tayfuncesur.domain.executor.PostExecutionThread
 import com.tayfuncesur.mobile.UIThread
-import com.tayfuncesur.mobile.mapper.ProjectViewMapper
+import com.tayfuncesur.mobile.mapper.ProjectMapper
 import com.tayfuncesur.mobile.ui.detail.MainDetailActivity
 import com.tayfuncesur.mobile.ui.main.MainActivity
 import com.tayfuncesur.mobile.ui.splash.SplashActivity
@@ -20,8 +20,8 @@ abstract class UIModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun providesProjectViewMapper() : ProjectViewMapper{
-            return ProjectViewMapper()
+        fun providesProjectViewMapper() : ProjectMapper{
+            return ProjectMapper()
         }
     }
 

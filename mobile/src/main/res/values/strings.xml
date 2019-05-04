@@ -4,4 +4,8 @@
     <string name="loading">Loading...</string>
     <string name="bookmark_project">Bookmark Project</string>
     <string name="unbookmark_project">Unbookmark Project</string>
+    <string name="errorDesc">An error occurred while getting repos.</string>
+    <string name="no_connection">You have no internet connection</string>
+    <string name="noConnectionStr">NoConnectionFragmetn</string>
+    <string name="try_again">Try Again</string>
 </resources>

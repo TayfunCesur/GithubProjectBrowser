@@ -36,7 +36,7 @@ class MainAdapter(private var list: List<Project>, private val onClick: (Project
         @SuppressLint("SetTextI18n")
         fun bind(pos: Int) {
             view.repoName.text = list[pos].fullName
-            view.starCount.text = "${list[pos].starCount} Star"
+            view.starCount.text = "${list[pos].starCount} Stars"
             view.favImage.visibility = if (list[pos].isBookmarked) View.VISIBLE else View.GONE
             PushDownAnim.setPushDownAnimTo(view.singleRowItem).setScale(PushDownAnim.MODE_STATIC_DP, 5F)
                 .setOnClickListener {

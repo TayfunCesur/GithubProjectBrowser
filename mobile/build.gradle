@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 
@@ -9,12 +8,11 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.tayfuncesur.freeletics"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.tayfuncesur.mobile.test.TestRunner"
     }
 
     buildTypes {
@@ -34,7 +32,7 @@ android {
 
 dependencies {
     def mobileDependencies = rootProject.ext.mobileDependencies
-    def mobileTestDependencies = rootProject.ext.mobileTestDependencies
+    def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
 
     implementation project(':domain')
     implementation project(':data')
@@ -59,6 +57,7 @@ dependencies {
         exclude group: 'com.android.support'
     }
     implementation mobileDependencies.glide
+    implementation mobileDependencies.reactivenetwork
 
     //Dagger
     implementation mobileDependencies.dagger
@@ -78,22 +77,20 @@ dependencies {
 
 
     //Testing
-    testImplementation mobileTestDependencies.kotlinJUnit
-    androidTestImplementation mobileTestDependencies.junit
-    androidTestImplementation mobileTestDependencies.mockito
-    androidTestImplementation(mobileTestDependencies.espressoCore) {
+    testImplementation mobileUiTestDependencies.kotlinJUnit
+    // Instrumentation test dependencies
+    androidTestImplementation mobileUiTestDependencies.junit
+    androidTestImplementation mobileUiTestDependencies.mockitoAndroid
+    androidTestImplementation(mobileUiTestDependencies.espressoCore) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation(mobileTestDependencies.androidRunner) {
+    androidTestImplementation(mobileUiTestDependencies.androidRunner) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation(mobileTestDependencies.androidRules) {
+    androidTestImplementation(mobileUiTestDependencies.androidRules) {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation(mobileTestDependencies.espressoIntents) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestImplementation(mobileTestDependencies.espressoContrib) {
+    androidTestImplementation(mobileUiTestDependencies.espressoContrib) {
         exclude module: 'appcompat'
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
@@ -102,6 +99,10 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'design'
     }
+
     kaptTest mobileDependencies.daggerCompiler
     kaptAndroidTest mobileDependencies.daggerCompiler
+    implementation 'com.android.support:cardview-v7:28.0.0'
 }
+
+apply plugin: 'kotlin-android-extensions'

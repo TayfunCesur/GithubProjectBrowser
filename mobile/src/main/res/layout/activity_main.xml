@@ -79,5 +79,71 @@
 
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:id="@+id/errorLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="16sp"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginRight="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content">
+
+        <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/loading_anim_size"
+                android:layout_height="@dimen/loading_anim_size"
+                android:layout_gravity="center"
+                app:lottie_loop="true"
+                app:lottie_fileName="anims/error.json"
+                app:lottie_colorFilter="@color/errColor"
+                android:id="@+id/animation_view2"
+                app:lottie_autoPlay="true"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/errorDesc"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/errorText"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/animation_view2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="16sp"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@+id/errorText"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_margin="8dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                android:id="@+id/tryAgainLayout"
+        >
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textColor="@color/white"
+                    android:text="@string/try_again"/>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

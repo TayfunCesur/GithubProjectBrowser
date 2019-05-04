@@ -10,6 +10,7 @@ import com.tayfuncesur.mobile.base.UIConstants.Selected_Item_Key
 import com.tayfuncesur.mobile.di.ViewModelFactory
 import com.tayfuncesur.mobile.model.Project
 import com.tayfuncesur.presentation.BookmarkViewModel
+import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.android.synthetic.main.main_detail.*
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class MainDetailActivity : BaseDaggerActivity() {
         val selectedProject = intent?.extras?.getParcelable<Project>(Selected_Item_Key)
 
         toolbar_detail_title.text = selectedProject?.fullName
-        starCount.text = "${selectedProject?.starCount} Star"
+        starCount.text = "${selectedProject?.starCount} Stars"
 
         val defaultSpeed = bookmarkAnim.speed
 
@@ -54,18 +55,27 @@ class MainDetailActivity : BaseDaggerActivity() {
 
 
         bookmarkAnim.setOnClickListener {
-            if (selectedProject.isBookmarked) {
-                bookmarkAnim.speed = -2 * defaultSpeed
-                bookmarkAnim.playAnimation()
-                bookmarkViewModel.unbookmarkProject(selectedProject.id)
-            } else {
-                bookmarkViewModel.bookmarkProject(selectedProject.id)
-                bookmarkAnim.speed = defaultSpeed
-                bookmarkAnim.playAnimation()
-                bookmarkLabel.text = getString(R.string.unbookmark_project)
-            }
-            selectedProject.isBookmarked = !selectedProject.isBookmarked
+            bookmarkAction(selectedProject, defaultSpeed)
         }
+
+        PushDownAnim.setPushDownAnimTo(bookmarkLabel).setScale(PushDownAnim.MODE_STATIC_DP, 5F).setOnClickListener {
+            bookmarkAction(selectedProject, defaultSpeed)
+        }
+    }
+
+
+    private fun bookmarkAction(selectedProject: Project, defaultSpeed: Float) {
+        if (selectedProject.isBookmarked) {
+            bookmarkAnim.speed = -2 * defaultSpeed
+            bookmarkAnim.playAnimation()
+            bookmarkViewModel.unbookmarkProject(selectedProject.id)
+        } else {
+            bookmarkViewModel.bookmarkProject(selectedProject.id)
+            bookmarkAnim.speed = defaultSpeed
+            bookmarkAnim.playAnimation()
+            bookmarkLabel.text = getString(R.string.unbookmark_project)
+        }
+        selectedProject.isBookmarked = !selectedProject.isBookmarked
     }
 
 }
