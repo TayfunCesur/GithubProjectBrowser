@@ -53,12 +53,7 @@ class MainDetailActivity : BaseDaggerActivity() {
             override fun onAnimationStart(animation: Animator?) {}
         })
 
-
-        bookmarkAnim.setOnClickListener {
-            bookmarkAction(selectedProject, defaultSpeed)
-        }
-
-        PushDownAnim.setPushDownAnimTo(bookmarkLabel).setScale(PushDownAnim.MODE_STATIC_DP, 5F).setOnClickListener {
+        PushDownAnim.setPushDownAnimTo(bookmarkProjectButton).setScale(PushDownAnim.MODE_STATIC_DP, 5F).setOnClickListener {
             bookmarkAction(selectedProject, defaultSpeed)
         }
     }

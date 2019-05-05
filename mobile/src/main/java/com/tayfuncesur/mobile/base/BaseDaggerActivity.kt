@@ -25,7 +25,7 @@ open class BaseDaggerActivity : AppCompatActivity() {
                 .observeInternetConnectivity()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { isConnectedToInternet ->
+                .subscribe({ isConnectedToInternet ->
                     val noConnectionFragment = NoConnectionFragment.newInstance()
                     if (!isConnectedToInternet) {
                         supportFragmentManager.beginTransaction().setCustomAnimations(
@@ -40,7 +40,7 @@ open class BaseDaggerActivity : AppCompatActivity() {
                         supportFragmentManager.popBackStack()
                         supportFragmentManager.executePendingTransactions()
                     }
-                }
+                }, { })
         )
     }
 
@@ -48,7 +48,6 @@ open class BaseDaggerActivity : AppCompatActivity() {
         compositeDisposable.clear()
         super.onDestroy()
     }
-
 
 
 }

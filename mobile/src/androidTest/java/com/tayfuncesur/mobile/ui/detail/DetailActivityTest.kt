@@ -17,6 +17,7 @@ import com.tayfuncesur.mobile.test.TestApp
 import com.tayfuncesur.mobile.ui.data.MockData
 import com.tayfuncesur.presentation.mapper.ProjectViewMapper
 import io.reactivex.Completable
+import kotlinx.android.synthetic.main.main_detail.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -43,7 +44,7 @@ class DetailActivityTest {
         Mockito.`when`(TestApp.appComponent().projectsRepository().bookmarkProject(randomProject.id)).thenReturn(
             Completable.complete()
         )
-        onView(withId(R.id.bookmarkAnim)).perform(click())
+        onView(withId(R.id.bookmarkProjectButton)).perform(click())
         verify(TestApp.appComponent().projectsRepository()).bookmarkProject(randomProject.id)
     }
 
@@ -54,7 +55,7 @@ class DetailActivityTest {
         Mockito.`when`(TestApp.appComponent().projectsRepository().unbookmarkProject(randomProject.id)).thenReturn(
             Completable.complete()
         )
-        onView(withId(R.id.bookmarkAnim)).perform(click())
+        onView(withId(R.id.bookmarkProjectButton)).perform(click())
         verify(TestApp.appComponent().projectsRepository()).unbookmarkProject(randomProject.id)
     }
 
