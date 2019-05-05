@@ -5,7 +5,6 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
-    def globalConfiguration = rootProject.extensions.getByName("ext")
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
