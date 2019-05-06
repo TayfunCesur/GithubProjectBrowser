@@ -9,9 +9,10 @@
             android:icon="@drawable/appiconblack"
             android:label="@string/app_name"
             android:name=".App"
+            android:usesCleartextTraffic="true"
             android:roundIcon="@drawable/appiconblack"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
+            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning" tools:targetApi="m">
         <activity android:name=".ui.splash.SplashActivity" android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
