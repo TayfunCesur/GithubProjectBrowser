@@ -84,7 +84,7 @@ interface CacheMapper<I, O> { //Like I: Input, O:Output
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This project contains all its units and UI tests and I strongly recommmend you to have a look cache layer unit tests because there are Room and local storage tests.  
  
   ### Bonus 2: [ReactiveNetwork](https://github.com/pwittchen/ReactiveNetwork)
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can learn the implementation of the ReactiveNetwork and  have how to broadcast the network connection with Rx from this project. It is really useful because there is a behaivour changes between API levels.
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can learn the implementation of the ReactiveNetwork and  have how to broadcast the network connection with Rx from this project. It is really useful because there is a behaviour changes between API levels.
  
  # Core Libraries
  - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/)
