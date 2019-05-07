@@ -70,8 +70,9 @@ The ViewModel's main functions are so simple like above.
  ```
 interface CacheMapper<I, O> { //Like I: Input, O:Output 
   
-  fun mapFromCache(cache: I): O  
-  fun mapToCache(dataToCache: O): I  
+       fun mapFromCache(cache: I): O  
+  
+       fun mapToCache(dataToCache: O): I  
 } 
  ```
  
