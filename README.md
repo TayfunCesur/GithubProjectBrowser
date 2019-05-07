@@ -41,17 +41,17 @@ The ViewModel's main functions are so simple like above.
  
  ```
 	class ProjectsDataRepository @Inject constructor(  
-	    private val mapper: ProjectMapper,  
-		   private val dataStore: ProjectsDataStoreFactory  
-		) : ProjectsRepository{ // This is the interface that represents your use cases
-							   // You defined it in the Domain Layer
-			  override fun getProjects(): Observable<List<Project>> {  
-              return dataStore.getRemoteDataStore().getProjects().map {  
-					 it.map {  
-						  mapper.mapFromEntity(it)  
-			         }  
-			     }
-			}
+	    	private val mapper: ProjectMapper,  
+		private val dataStore: ProjectsDataStoreFactory  
+		) : ProjectsRepository { // This is the interface that represents your use cases
+		       		        // You defined it in the Domain Layer
+		override fun getProjects(): Observable<List<Project>> {
+        	    return dataStore.getRemoteDataStore().getProjects().map {
+                       it.map {
+                           mapper.mapFromEntity(it)
+                       }
+                    }
+                }
 	 }
  ```
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can think this layer responsible for getting and serving data through the Domain layer but it doesn't care about where or how the data comes. It just a navigator that navigates your flow through the Remote or Cache.
