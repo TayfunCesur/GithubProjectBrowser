@@ -1,11 +1,11 @@
 # Github Project Browser
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a sample Android Project that is based on [Uncle Bob's Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) .It contains six different layers but the count of layers may change your project, you may have more or less layers. All of them have own mission but none of them interests with the others. That is the main idea actually. I will not explain the Clean Architecture because this is already well documented. I will just explain how I implemented. Here is the preview of project for just motivation before diving
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a sample Android Project that is based on [Uncle Bob's Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) .It contains six different layers but the count of layers may change with respect to your project, you may have more or less layers. All of them have own mission but none of them interests with the others. That is the main idea actually. I will not explain the Clean Architecture because this is already well documented. I will just explain how I implemented. Here is the preview of project for just motivation before diving
 
 <img height="500" align="right" src="https://firebasestorage.googleapis.com/v0/b/events-c4167.appspot.com/o/ezgif.com-resize.gif?alt=media&token=73dcb544-fce5-4958-a21a-a595b518cb3f"></img>
 
 ### Layers
 When you do some action in your application, the flow will be like below respectively
- - **UI Layer** is the layer that displays your data. You can use multi UI layer in any project. (*For instance you have already an app that runs in phones and if you want to expand your targets for new platforms such as watches or TVs. There is no problem for you anymore.*)
+ - **UI Layer** is the layer that displays your data. You may use multi UI layer in your project. (*For instance you have already an app that runs in phones and if you want to expand your targets for new platforms such as watches or TVs. There is no problem for you anymore.*)
  - **Presentation Layer** is the layer like a gateway between your UI and Business. You can use any design pattern in here(MVP,MVVM,MVI etc.)
   (***MVVM*** is used in this project)
 - **Domain Layer,** is the core layer that represents the use cases of project. You can think this layer as a middleman.
